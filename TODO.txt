@@ -1,0 +1,24 @@
+- table ignores starting scores when sorting
+
+- extra [b][/b]
+
+- rts claims something about resubmitted answers not changing? (something with invalids?)
+- need to re-group answers when a player's answers were changed
+
+==================
+
+bugs:
+
+- when you add entries before q's, entries disappear
+- when you modify someone's entry, regroup the modified ones
+- says "didn't find any entries" when you reload the same entries file
+- when adding >1 new players manually, sometimes answers don't get saved
+
+TODO:
+
+- also get entry time
+- bold bonus scores (incl. for aces)
+- rounding options: none, nearest, up, down (only apply to base scores. not bonuses)
+- add "override" bonus option. also bonus / penalty (maybe ?)
+- edit group name manually
+- format for <b>bold text</b>
