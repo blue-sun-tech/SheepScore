@@ -227,6 +227,13 @@ namespace sheepscore12
             List<ShPlayer> playersToDelete = new List<ShPlayer>(
                     sg.Players.Where((ply, i) => FormAnswers.ed_players.All(
                         ep => ep.OriginalPosition != i)));
+             
+            bool do_regroup = false;
+            if (FormAnswers.ed_players.Any(ep=>ep.NeedsRegrouping))
+            {
+                do_regroup = MessageBox.Show("Answers for some players were modified. Do you want to auto-group the new answers?",
+                    "Regroup answers", MessageBoxButtons.YesNo) == DialogResult.Yes;
+            }
 
             //loop through each player from the editor
             foreach (editAnswers.EdPlayer ep in FormAnswers.ed_players)
@@ -246,17 +253,23 @@ namespace sheepscore12
                 }
                 else //this player is not new, all we have to do is update answers/names
                 {
+                    sg.Players[ep.OriginalPosition].Name = ep.Name;
+                    sg.Players[ep.OriginalPosition].StartScore = ep.StartScore;
                     for (int iques = 0; iques < sg.Questions.Count; iques++)
                     {
+                        var ans = sg.Players[ep.OriginalPosition].Answers[iques];
                         //set some default text
                         string tempAnsTxt = "(blank)";
                         //check if we have text for this answer
                         if (iques < ansTxt.Count)
                             if (ansTxt[iques].Trim() != "")
                                 tempAnsTxt = ansTxt[iques].Trim();
-                        sg.Players[ep.OriginalPosition].Answers[iques].Text = tempAnsTxt;
-                        sg.Players[ep.OriginalPosition].Name = ep.Name;
-                        sg.Players[ep.OriginalPosition].StartScore = ep.StartScore;
+                        ans.Text = tempAnsTxt;
+                        if (do_regroup && ep.NeedsRegrouping)
+                        {
+                            ans.StartNewGroup();
+                            sg.GuessGroup(ans);
+                        }
                     }
                 }
             }
@@ -269,6 +282,8 @@ namespace sheepscore12
 
             sheep_modified = true;
             redrawTreeView();
+
+            if (do_regroup) MessageBox.Show("Some answers were re-grouped. You should review all the questions to make sure groupings are correct.");
         }
 
         //main drag/drop function
@@ -806,15 +821,14 @@ namespace sheepscore12
 
             foreach (ShGroup grp in validGroups)
             {
-                txt += OpenBold + grp.Text + " - " +
-                    GetScoreOutputText(grp.GetScore(false), grp.BonusType, grp.GroupBonus, curScoreMethod) +
-                    CloseBold + Environment.NewLine;
+                var g_bonus_text = GetScoreOutputText(grp.GetScore(false), grp.BonusType, grp.GroupBonus, curScoreMethod).Trim();
+                txt += OpenBold + grp.Text + " - " + g_bonus_text + CloseBold + Environment.NewLine;
 
                 foreach (ShAnswer ans in grp.Answers.OrderBy(a => a.Player.Name))
                 {
-                    txt += ans.Player.Name + " " + 
-                        OpenBold + GetBonusOutputText(ans.BonusType, ans.AnswerBonus, curScoreMethod) + CloseBold +
-                        Environment.NewLine;
+                    var p_bonus_text = GetBonusOutputText(ans.BonusType, ans.AnswerBonus, curScoreMethod).Trim();
+                    txt += ans.Player.Name + (!string.IsNullOrEmpty(p_bonus_text) ? (" " + OpenBold + p_bonus_text + CloseBold) : "")
+                        + Environment.NewLine;
                 }
                 txt += Environment.NewLine;
             }
@@ -837,9 +851,10 @@ namespace sheepscore12
                 {
                     bonus_text = GetBonusOutputText(grp.BonusType, grp.GroupBonus, curScoreMethod) + " " +
                         GetBonusOutputText(ans.BonusType, ans.AnswerBonus, curScoreMethod);
-                } 
-                txt += OpenBold + grp.Text + CloseBold + " - " + grp.Answers[0].Player.Name + " " +
-                        OpenBold + bonus_text + CloseBold
+                }
+                bonus_text = bonus_text.Trim();
+                if (!string.IsNullOrEmpty(bonus_text)) bonus_text = OpenBold + bonus_text + CloseBold;
+                txt += OpenBold + grp.Text + CloseBold + " - " + grp.Answers[0].Player.Name + " " + bonus_text
                         + Environment.NewLine;
             }
 
@@ -863,9 +878,10 @@ namespace sheepscore12
                         bonus_text = GetBonusOutputText(grp.BonusType, grp.GroupBonus, curScoreMethod) + " " +
                             GetBonusOutputText(ans.BonusType, ans.AnswerBonus, curScoreMethod);
                     }
+                    bonus_text = bonus_text.Trim();
+                    if (!string.IsNullOrEmpty(bonus_text)) bonus_text = OpenBold + bonus_text + CloseBold;
 
-                    txt += OpenBold + ans.Text + CloseBold + " - " + ans.Player.Name + " " +
-                            OpenBold + bonus_text + CloseBold
+                    txt += OpenBold + ans.Text + CloseBold + " - " + ans.Player.Name + " " + bonus_text
                             + Environment.NewLine;
                 }
             }
@@ -1024,7 +1040,7 @@ namespace sheepscore12
                 txt += "\tQ" + (iQues + 1).ToString();
             }
 
-            foreach (var plr_scores in curScores.OrderBy(ps => ps.Value.Sum() * order_mult))
+            foreach (var plr_scores in curScores.OrderBy(ps => (ps.Key.StartScore + ps.Value.Sum()) * order_mult))
             {
                 var plr = plr_scores.Key;
                 var scrs = plr_scores.Value;

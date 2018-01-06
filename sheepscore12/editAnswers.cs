@@ -29,10 +29,11 @@ namespace sheepscore12
             public decimal StartScore;
             public const int NewPlayerOriginalPosition = -1;
             public int EdIndex;
+            public bool NeedsRegrouping;
 
             public EdPlayer()
             {
-                Name = ""; Answers = ""; OriginalPosition = NewPlayerOriginalPosition; StartScore = 0;
+                Name = ""; Answers = ""; OriginalPosition = NewPlayerOriginalPosition; StartScore = 0; NeedsRegrouping = false;
             }
             public EdPlayer(string newName, string newAnswers, decimal start_score = 0, int origPos = NewPlayerOriginalPosition)
             {
@@ -40,6 +41,7 @@ namespace sheepscore12
                 Answers = newAnswers;
                 OriginalPosition = origPos;
                 StartScore = start_score;
+                NeedsRegrouping = false;
             }
         }
 
@@ -52,10 +54,13 @@ namespace sheepscore12
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //save old text
-            ed_players[curPlayer].Answers = textBox1.Text;
-            ed_players[curPlayer].StartScore = numStartScore.Value;
-            
+            if (ed_players[curPlayer].Answers != textBox1.Text)
+            {
+                ed_players[curPlayer].NeedsRegrouping = true;
+                ed_players[curPlayer].Answers = textBox1.Text;
+            }
+
+            ed_players[curPlayer].StartScore = numStartScore.Value;            
 
             curPlayer = comboBox1.SelectedIndex;
 
@@ -220,7 +225,11 @@ namespace sheepscore12
             //make sure current thing gets saved
             if (curPlayer < ed_players.Count)
             {
-                ed_players[curPlayer].Answers = textBox1.Text;
+                if (ed_players[curPlayer].Answers != textBox1.Text)
+                {
+                    ed_players[curPlayer].NeedsRegrouping = true;
+                    ed_players[curPlayer].Answers = textBox1.Text;
+                }
                 ed_players[curPlayer].StartScore = numStartScore.Value;
             }
             this.DialogResult = DialogResult.OK;
