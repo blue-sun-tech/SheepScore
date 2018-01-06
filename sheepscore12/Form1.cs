@@ -43,7 +43,7 @@ namespace sheepscore12
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = Application.ProductName + " *** BETA 1 ***";
+            this.Text = Application.ProductName;
             SetScoringMethod(ShMethod.Sheep);
             sg = new ShGame();
 

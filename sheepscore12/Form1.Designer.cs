@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Node0");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
-            treeNode82,
-            treeNode83});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
             this.numericUpDown_question = new System.Windows.Forms.NumericUpDown();
             this.label_question = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -61,9 +61,16 @@
             this.HeepNoBonusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kangarooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.roundingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noRoundingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roundUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roundDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roundNearestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyAnswersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyScoresUpToThisQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAllScoresUpToThisQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyPlayerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.outputStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,13 +92,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.copyAllScoresUpToThisQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.roundingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noRoundingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.roundUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.roundDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.roundNearestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_question)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.RCM_group.SuspendLayout();
@@ -308,6 +308,51 @@
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(140, 6);
+            // 
+            // roundingToolStripMenuItem
+            // 
+            this.roundingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.noRoundingToolStripMenuItem,
+            this.roundUpToolStripMenuItem,
+            this.roundDownToolStripMenuItem,
+            this.roundNearestToolStripMenuItem});
+            this.roundingToolStripMenuItem.Name = "roundingToolStripMenuItem";
+            this.roundingToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
+            this.roundingToolStripMenuItem.Text = "Rounding";
+            this.roundingToolStripMenuItem.DropDownOpening += new System.EventHandler(this.roundingToolStripMenuItem_DropDownOpening);
+            // 
+            // noRoundingToolStripMenuItem
+            // 
+            this.noRoundingToolStripMenuItem.Name = "noRoundingToolStripMenuItem";
+            this.noRoundingToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.noRoundingToolStripMenuItem.Text = "No Rounding";
+            this.noRoundingToolStripMenuItem.Click += new System.EventHandler(this.noRoundingToolStripMenuItem_Click);
+            // 
+            // roundUpToolStripMenuItem
+            // 
+            this.roundUpToolStripMenuItem.Name = "roundUpToolStripMenuItem";
+            this.roundUpToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.roundUpToolStripMenuItem.Text = "Round Up";
+            this.roundUpToolStripMenuItem.Click += new System.EventHandler(this.roundUpToolStripMenuItem_Click);
+            // 
+            // roundDownToolStripMenuItem
+            // 
+            this.roundDownToolStripMenuItem.Name = "roundDownToolStripMenuItem";
+            this.roundDownToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.roundDownToolStripMenuItem.Text = "Round Down";
+            this.roundDownToolStripMenuItem.Click += new System.EventHandler(this.roundDownToolStripMenuItem_Click);
+            // 
+            // roundNearestToolStripMenuItem
+            // 
+            this.roundNearestToolStripMenuItem.Name = "roundNearestToolStripMenuItem";
+            this.roundNearestToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.roundNearestToolStripMenuItem.Text = "Round Nearest";
+            this.roundNearestToolStripMenuItem.Click += new System.EventHandler(this.roundNearestToolStripMenuItem_Click);
+            // 
             // outputToolStripMenuItem
             // 
             this.outputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -334,6 +379,13 @@
             this.copyScoresUpToThisQuestionToolStripMenuItem.Size = new System.Drawing.Size(319, 24);
             this.copyScoresUpToThisQuestionToolStripMenuItem.Text = "Copy total scores up to this question";
             this.copyScoresUpToThisQuestionToolStripMenuItem.Click += new System.EventHandler(this.copyScoresUpToThisQuestionToolStripMenuItem_Click);
+            // 
+            // copyAllScoresUpToThisQuestionToolStripMenuItem
+            // 
+            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Name = "copyAllScoresUpToThisQuestionToolStripMenuItem";
+            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Size = new System.Drawing.Size(319, 24);
+            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Text = "Copy score table up to this question";
+            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Click += new System.EventHandler(this.copyAllScoresUpToThisQuestionToolStripMenuItem_Click);
             // 
             // copyPlayerListToolStripMenuItem
             // 
@@ -395,14 +447,14 @@
             // hepToolStripMenuItem1
             // 
             this.hepToolStripMenuItem1.Name = "hepToolStripMenuItem1";
-            this.hepToolStripMenuItem1.Size = new System.Drawing.Size(128, 24);
+            this.hepToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.hepToolStripMenuItem1.Text = "Help...";
             this.hepToolStripMenuItem1.Click += new System.EventHandler(this.hepToolStripMenuItem1_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -416,23 +468,23 @@
             this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(12, 61);
             this.treeView1.Name = "treeView1";
-            treeNode79.Name = "Node0";
-            treeNode79.Text = "Node0";
-            treeNode80.Name = "Node1";
-            treeNode80.Text = "Node1";
-            treeNode81.Name = "Node2";
-            treeNode81.Text = "Node2";
-            treeNode82.Name = "Node4";
-            treeNode82.Text = "Node4";
-            treeNode83.Name = "Node5";
-            treeNode83.Text = "Node5";
-            treeNode84.Name = "Node3";
-            treeNode84.Text = "Node3";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Node0";
+            treeNode2.Name = "Node1";
+            treeNode2.Text = "Node1";
+            treeNode3.Name = "Node2";
+            treeNode3.Text = "Node2";
+            treeNode4.Name = "Node4";
+            treeNode4.Text = "Node4";
+            treeNode5.Name = "Node5";
+            treeNode5.Text = "Node5";
+            treeNode6.Name = "Node3";
+            treeNode6.Text = "Node3";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode79,
-            treeNode80,
-            treeNode81,
-            treeNode84});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(376, 522);
             this.treeView1.TabIndex = 7;
             this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
@@ -514,58 +566,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // copyAllScoresUpToThisQuestionToolStripMenuItem
-            // 
-            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Name = "copyAllScoresUpToThisQuestionToolStripMenuItem";
-            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Size = new System.Drawing.Size(319, 24);
-            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Text = "Copy score table up to this question";
-            this.copyAllScoresUpToThisQuestionToolStripMenuItem.Click += new System.EventHandler(this.copyAllScoresUpToThisQuestionToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // roundingToolStripMenuItem
-            // 
-            this.roundingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.noRoundingToolStripMenuItem,
-            this.roundUpToolStripMenuItem,
-            this.roundDownToolStripMenuItem,
-            this.roundNearestToolStripMenuItem});
-            this.roundingToolStripMenuItem.Name = "roundingToolStripMenuItem";
-            this.roundingToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.roundingToolStripMenuItem.Text = "Rounding";
-            this.roundingToolStripMenuItem.DropDownOpening += new System.EventHandler(this.roundingToolStripMenuItem_DropDownOpening);
-            // 
-            // noRoundingToolStripMenuItem
-            // 
-            this.noRoundingToolStripMenuItem.Name = "noRoundingToolStripMenuItem";
-            this.noRoundingToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
-            this.noRoundingToolStripMenuItem.Text = "No Rounding";
-            this.noRoundingToolStripMenuItem.Click += new System.EventHandler(this.noRoundingToolStripMenuItem_Click);
-            // 
-            // roundUpToolStripMenuItem
-            // 
-            this.roundUpToolStripMenuItem.Name = "roundUpToolStripMenuItem";
-            this.roundUpToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
-            this.roundUpToolStripMenuItem.Text = "Round Up";
-            this.roundUpToolStripMenuItem.Click += new System.EventHandler(this.roundUpToolStripMenuItem_Click);
-            // 
-            // roundDownToolStripMenuItem
-            // 
-            this.roundDownToolStripMenuItem.Name = "roundDownToolStripMenuItem";
-            this.roundDownToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
-            this.roundDownToolStripMenuItem.Text = "Round Down";
-            this.roundDownToolStripMenuItem.Click += new System.EventHandler(this.roundDownToolStripMenuItem_Click);
-            // 
-            // roundNearestToolStripMenuItem
-            // 
-            this.roundNearestToolStripMenuItem.Name = "roundNearestToolStripMenuItem";
-            this.roundNearestToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
-            this.roundNearestToolStripMenuItem.Text = "Round Nearest";
-            this.roundNearestToolStripMenuItem.Click += new System.EventHandler(this.roundNearestToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,7 +580,7 @@
             this.MinimumSize = new System.Drawing.Size(300, 500);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sheep Score 2017 ***BETA 1***";
+            this.Text = "Sheep Score 2018";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_question)).EndInit();
