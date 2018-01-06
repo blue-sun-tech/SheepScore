@@ -50,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(11, 78);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -65,10 +65,9 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(91, 15);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(243, 24);
-            this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -76,7 +75,7 @@
             // 
             this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoad.Location = new System.Drawing.Point(342, 15);
-            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(118, 40);
             this.buttonLoad.TabIndex = 4;
@@ -88,7 +87,7 @@
             // 
             this.buttonNewPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNewPlayer.Location = new System.Drawing.Point(342, 63);
-            this.buttonNewPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNewPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNewPlayer.Name = "buttonNewPlayer";
             this.buttonNewPlayer.Size = new System.Drawing.Size(118, 40);
             this.buttonNewPlayer.TabIndex = 5;
@@ -100,7 +99,7 @@
             // 
             this.buttonDeletePlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeletePlayer.Location = new System.Drawing.Point(342, 159);
-            this.buttonDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeletePlayer.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeletePlayer.Name = "buttonDeletePlayer";
             this.buttonDeletePlayer.Size = new System.Drawing.Size(118, 40);
             this.buttonDeletePlayer.TabIndex = 7;
@@ -112,7 +111,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.Location = new System.Drawing.Point(342, 435);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(118, 40);
             this.buttonCancel.TabIndex = 9;
@@ -124,7 +123,7 @@
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOK.Location = new System.Drawing.Point(342, 387);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(118, 40);
             this.buttonOK.TabIndex = 8;
@@ -136,7 +135,7 @@
             // 
             this.buttonChangeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonChangeName.Location = new System.Drawing.Point(342, 111);
-            this.buttonChangeName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonChangeName.Margin = new System.Windows.Forms.Padding(4);
             this.buttonChangeName.Name = "buttonChangeName";
             this.buttonChangeName.Size = new System.Drawing.Size(118, 40);
             this.buttonChangeName.TabIndex = 6;
@@ -165,7 +164,7 @@
             this.numStartScore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numStartScore.DecimalPlaces = 3;
             this.numStartScore.Location = new System.Drawing.Point(204, 47);
-            this.numStartScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numStartScore.Margin = new System.Windows.Forms.Padding(4);
             this.numStartScore.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -207,7 +206,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(450, 400);
             this.Name = "editAnswers";
             this.Text = "Edit Entries";

@@ -1196,7 +1196,7 @@ namespace sheepscore12
                 + Environment.NewLine
                 + "by DarkMagus" + Environment.NewLine
                 + Environment.NewLine
-                + "Visit twofive.ca/sheep for more info");
+                + "Visit https://github.com/blue-sun-tech/SheepScore for more info");
         }
 
         //show help
@@ -1205,12 +1205,12 @@ namespace sheepscore12
 
             try
             {
-                System.Diagnostics.Process.Start("help.html");
+                System.Diagnostics.Process.Start("https://github.com/blue-sun-tech/SheepScore/wiki/UserGuide");
                 //   System.Diagnostics.Process.Start("http://twofive.ca/sheep");
             }
             catch
             {
-                MessageBox.Show("Please visit twofive.ca/sheep for help");
+                MessageBox.Show("Please visit https://github.com/blue-sun-tech/SheepScore/wiki/UserGuide for help");
             }
         }
 
